@@ -7,7 +7,6 @@ options(timeout=180)
 
 
 ##now get the new maps
-# setwd("C:/Users/allan/OneDrive/New_Graph/Current/2019-023_Bulkley_fish_passage/field_maps/assessment/planning_maps")
 url = "https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/"
 
 filenames <- getURL(url,verbose=TRUE,ftp.use.epsv=TRUE, dirlistonly = TRUE)
