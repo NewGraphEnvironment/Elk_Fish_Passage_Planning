@@ -20,7 +20,7 @@ conn <- dbConnect(
 dbGetQuery(conn,
            "SELECT column_name,data_type 
            FROM information_schema.columns 
-           WHERE table_name='pscis_assessment_svw'")
+           WHERE table_name='pscis_model_combined'")
 
 ##list tables in a schema  
 dbGetQuery(conn,
@@ -28,11 +28,7 @@ dbGetQuery(conn,
            FROM information_schema.tables 
            WHERE table_schema='whse_fish'")
 
-df <- dbGetQuery(conn, "SELECT
-  a.* 
-  FROM fish_passage.pscis_model_combined
-  WHERE ")
-  
+
   
 query <- "SELECT * FROM fish_passage.pscis_model_combined WHERE watershed_group_code IN ('ELKR')"
 
@@ -104,3 +100,7 @@ view <- df_joined %>%
            uphab_gross_sub15 > 3000) %>% 
   group_by(dbm_mof_50k_grid_map_tile) %>% 
   summarise(n = n())
+
+
+##lets join with the pscis data and screen for high or mod priority crossings
+

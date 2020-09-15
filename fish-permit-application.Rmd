@@ -1,0 +1,406 @@
+---
+title: 
+output:
+  bookdown::word_document2:
+    reference_docx: C:/Users/allan/OneDrive/New_Graph/Current/Code/R/Templates/RMDTemplates/R/word_template_landscape.docx
+    bibliography: references.bib
+    toc: no
+    fig_caption: yes
+  bookdown::html_document2:
+    number_sections: no
+    self_contained: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=T, comment=NA, echo =FALSE, message=FALSE, warning=FALSE}
+library(DBI)
+library(tidyverse)
+library(sf)
+library(RPostgres)
+library(data.table)
+library(xlsx)
+library(flextable)
+library("plotKML")
+
+#Enter the values for you database connection
+conn <- dbConnect(
+  RPostgres::Postgres(),
+  dbname = 'postgis',
+  host = 'localhost',
+  port = 5432,
+  user = 'postgres',
+  password = 'postgres'
+)
+
+knitr::opts_chunk$set(echo=FALSE, comment=NA, message=FALSE, warning=FALSE, fig.align="center", fig.width = 5.118, fig.height = 3.409)
+options(knitr.table.format = "html")
+
+
+```
+
+Rationale for sampling is to inform fish presence/absence and species composition/density as part of habitat confirmations to prioritize fish passage restoration at barrier culverts as per the Fish Passage Technical Working Group Phase 2 protocol
+(https://www2.gov.bc.ca/gov/content/environment/natural-resource-stewardship/land-based-investment/investment-categories/fish-passage). Some of the background planning for this work is summarized in a 2016 report located at http://a100.gov.bc.ca/pub/acat/public/viewReport.do?reportId=50900. Maps are at https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/ .  Project is part of an initiative for fish passage restoration activities to benefit westslope cutthrout trout in the Elk River watershed group currently led by the Canadian Wildlife Federation.
+
+
+Presence/absence of fish, species composition/density and distribution limits can be useful for prioritizing which crossings are a best fit for fish passage restoration and help inform follow up monitoring.  Sampling is proposed at a portion of the 10 or so sites we will be performing habitat confirmations at this fall.  The current list of candidate streams is extensive and will be narrowed down to under in the next week through modeling, ongoing communications with First Nations, FLNR, Canadian Wildlife Federation and stakeholders.
+
+
+It is unlikely that sampling will be conducted at more than 5 of the streams listed in the sampling location tables however until the sites are visited in the field it is difficult to determine if the sampling will be beneficial to inform the prioritization and monitoring. Sampling methodologies will be dependent on the site, fish species suspected, type of habitat encountered and ongoing communications with numerous stakeholders but may include minnowtrapping, electrofishing and dipnetting upstream and downstream of barrier culvert locations.  
+
+
+Please note that the sampling will be completed before October 30, 2020 however the period is listed as Dec 31, 2020 on the application to allow time outside of the busy field season for the data to be processed, QA'd and organized so that required reporting can be as informative as possible and submitted to the Province as per the permit conditions before 90 days has expired. 
+
+I have attached an excel file with a complete list of potential sites, details and potential fish species encountered. Myself (Allan Irvine, R.P.Bio.) and Kyle Prince, P.Biol will be conducted potentially most of the fieldwork however Nupqu Development Corp staff (Mark Fjeld, Dominique Nicholas and Natalie Morrison) may also be conducting assessments.   Please don't hesitate to contact me if you have any questions or concerns at al@newgraphenvironment.com 2507771518.
+
+```{r}
+
+# read the geopackage with the 2016 sites
+df <- sf::st_read(
+  "./gis/elk_planning_2020.gpkg",  ##this path does not work anymore b/c rmd files ref diff
+  layer = "irvine_columbia_2016")  %>% 
+  # mutate(long = st_coordinates(.)[,1],
+  #        lat = st_coordinates(.)[,2]) %>%
+  # sf::st_transform(crs = 26911) %>% ##get the utms
+  # mutate(easting_11n = st_coordinates(.)[,1],
+  #        northing_11n = st_coordinates(.)[,2]) %>%
+  sf::st_transform(crs = 3005) %>% ##put in same crs as our moe layer
+  mutate(keep_2020 = as.character(keep_2020),
+         notes_2020 = as.character(notes_2020),
+         stream_width = as.numeric(stream_width),
+         keep_2020 = case_when(notes_2020 %like% 'Roberts ' ~ 'yes', T ~ keep_2020)) %>% 
+  rename(road_name = road_segment_id, stream_name = stream)
+
+# add a unique id
+df$misc_point_id <- seq.int(nrow(df))
+
+# load to database
+st_write(obj = df, dsn = conn, Id(schema= "working", table = "misc_points"))
+
+# sf doesn't automagically create a spatial index or a primary key
+res <- dbSendQuery(conn, "CREATE INDEX ON working.misc_points USING GIST (geom)")
+dbClearResult(res)
+res <- dbSendQuery(conn, "ALTER TABLE working.misc_points ADD PRIMARY KEY (misc_point_id)")
+dbClearResult(res)
+
+##pull out the closest pscis_model_combined_id 
+pscis_info <- dbGetQuery(conn, "SELECT
+  a.misc_point_id,
+  b.pscis_model_combined_id, 
+  ST_Distance(ST_Transform(a.geom,3005), b.geom) AS distance
+FROM
+  working.misc_points AS a
+CROSS JOIN LATERAL
+  (SELECT *
+   FROM fish_passage.pscis_model_combined
+   ORDER BY
+     a.geom <-> geom
+   LIMIT 1) AS b")
+
+##join back to the original dataframe and reaname
+df1 <-  left_join(df,
+                  pscis_info,
+                  by = 'misc_point_id')
+
+
+
+
+# plot(df$geom)
+##from manual review add these
+## PSCIS 50200, 103042, 50199 (too steep upstream at 103043), 50254 trib to Michel Creek, 112353 , 50261 trib to Michel
+##62499 Trib to Line
+##pscis_model_combined_id (pmci) - 234688
+##pmci 40886 trib to Elk, 127165 Cokato Ck, 40894 Hartley Ck, 17567 McCool Ck, 34025 Brule, 234681 Weigert Ck, 127535 Trib to Elk
+##127536 Lowe Ck, 17554  40931 Dalzell Ck, 94439 Grave Ck
+
+##bring in the crossings from pscis that we have identified
+query <- "SELECT p.* FROM whse_fish.pscis_assessment_svw p WHERE p.stream_crossing_id IN ('50200', '103042', '50199', '50254', '112353', '50261', '62499')"
+
+df <-  sf::st_read(conn, query = query) %>% 
+  select(stream_crossing_id, stream_name, road_name, easting_11n = utm_easting, northing_11n = utm_northing,
+         stream_width = downstream_channel_width, notes = assessment_comment)
+
+##list column names in a table (cut and paste into console)
+# dbGetQuery(conn,
+#            "SELECT column_name,data_type
+#            FROM information_schema.columns
+#            WHERE table_name='pscis_model_combined'")
+
+# add a unique id
+df$misc_point_id <- seq.int(nrow(df))
+
+# load to database
+st_write(obj = df, dsn = conn, Id(schema= "working", table = "misc_points"))
+
+# sf doesn't automagically create a spatial index or a primary key
+res <- dbSendQuery(conn, "CREATE INDEX ON working.misc_points USING GIST (geom)")
+dbClearResult(res)
+res <- dbSendQuery(conn, "ALTER TABLE working.misc_points ADD PRIMARY KEY (misc_point_id)")
+dbClearResult(res)
+
+##pull out the closest pscis_model_combined_id 
+pscis_info <- dbGetQuery(conn, "SELECT
+  a.misc_point_id,
+  b.pscis_model_combined_id, 
+  ST_Distance(ST_Transform(a.geom,3005), b.geom) AS distance
+FROM
+  working.misc_points AS a
+CROSS JOIN LATERAL
+  (SELECT *
+   FROM fish_passage.pscis_model_combined
+   ORDER BY
+     a.geom <-> geom
+   LIMIT 1) AS b")
+
+##join back to the original dataframe and reaname
+df2 <-  left_join(df,
+                  pscis_info,
+                  by = 'misc_point_id')
+
+
+
+##bring in the crossings from pscis_modelled_combined that we have identified
+query <- "SELECT fp.* FROM fish_passage.pscis_model_combined fp WHERE fp.pscis_model_combined_id IN ('234688', '40886', '127165', '40894', '17567', '34025', '234681', '127535', '127536', '17554', '40931', '94439')"
+
+df3 <-  sf::st_read(conn, query = query) %>% 
+  select(pscis_model_combined_id, stream_name)
+
+
+##join all dataframes together
+df <- bind_rows(df1, df2, df3)
+
+
+##----------back to the database for the modeled info
+##need to get the pscis_model_combined_id for my pscis crossings
+ids <-  df %>%
+  pull(pscis_model_combined_id) %>%
+  unique() %>%
+  as_vector() %>%
+  na.omit()
+
+
+sql <- glue::glue_sql(
+  "
+                                Select *
+                                FROM fish_passage.pscis_model_combined b
+                                WHERE b.pscis_model_combined_id IN
+                                ({ids*})
+                                ",
+  .con = conn
+)
+query <- DBI::dbSendQuery(conn, sql)
+pscis_info <- DBI::dbFetch(query)
+dbClearResult(query)
+
+##find the watershed codes for the permit
+wsc <- dbGetQuery(conn, "SELECT DISTINCT ON (pscis_model_combined_id)
+    a.pscis_model_combined_id, 
+    a.linear_feature_id,
+    b.watershed_code_50k,
+    substring(b.watershed_code_50k from 1 for 3)
+      ||'-'||substring(b.watershed_code_50k from 4 for 6)
+      ||'-'||substring(b.watershed_code_50k from 10 for 6)
+      ||'-'||substring(b.watershed_code_50k from 16 for 6)
+      ||'-'||substring(b.watershed_code_50k from 24 for 6)
+      ||'-'||substring(b.watershed_code_50k from 30 for 6)
+      ||'-'||substring(b.watershed_code_50k from 36 for 6) as watershed_code_50k_parsed,
+    b.blue_line_key_20k,
+    b.watershed_key_20k,
+    b.blue_line_key_50k,
+    b.watershed_key_50k,
+    b.match_type
+FROM fish_passage.pscis_model_combined a
+LEFT OUTER JOIN whse_basemapping.fwa_streams_20k_50k b
+ON a.linear_feature_id = b.linear_feature_id_20k
+WHERE a.watershed_group_code = 'ELKR'
+ORDER BY a.pscis_model_combined_id, b.match_type;")
+
+##join the watershed codes to the crossings
+df <- left_join(df,
+                select(wsc, pscis_model_combined_id, watershed_code_50k_parsed),
+                by = 'pscis_model_combined_id')  %>% 
+  filter(keep_2020 != 'No' | is.na(keep_2020)) %>%
+  mutate(notes_all = paste(notes, notes_2020))
+
+#join the crossings to the pscis_model_combined info we want
+df_final <- left_join(df,
+                  select(pscis_info,
+                         pscis_model_combined_id, pscis_stream_crossing_id, watershed_code_20k = localcode,
+                         uphab_gross_sub15, upstr_species, dbm_mof_50k_grid_map_tile),
+                  by = 'pscis_model_combined_id'
+) %>%
+  sf::st_transform(crs = 26911) %>% ##get the utms
+  mutate(easting_11n = st_coordinates(.)[,1],
+         northing_11n = st_coordinates(.)[,2]) %>%
+  select(pscis_model_combined_id, pscis_stream_crossing_id, stream_name, watershed_code_50k = watershed_code_50k_parsed, watershed_code_20k, road_name, easting_11n, northing_11n, uphab_gross_sub15, upstr_species, map_50k = dbm_mof_50k_grid_map_tile, notes= notes_all)
+# sf::st_transform(crs = 3005)
+
+
+
+
+
+
+```
+
+
+```{r eval = F}
+
+
+##rewrite with the new info added 
+sf::st_write(df_final, "gis/elk_planning_2020.gpkg", "sites_2020", delete_layer = T)
+
+
+```
+
+```{r eval = F}
+
+##make a gpx file
+df_final %>% ##untest with df_final but worked with df so I think it is fine
+  sf::st_transform(crs = 4326) %>%   
+  mutate(name = paste0(pscis_stream_crossing_id, ' pmc-' ,pscis_model_combined_id), 
+         desc = paste(map_50k, notes, sep = " ")) %>% 
+  select(name, desc,  geom) %>% 
+  write_sf(dsn = "gis/field_sites_20200915.gpx", driver="GPX",
+           dataset_options="GPX_USE_EXTENSIONS=yes", delete_dsn = TRUE)
+```
+
+```{r eval = F}
+##make a kml
+df_final_kml = df_final %>% 
+  sf::st_transform(crs = 4326) %>% 
+  mutate(label = paste0(pscis_stream_crossing_id, ' pmc-' ,pscis_model_combined_id))
+
+df_final_kml <- as(df_final_kml, 'Spatial')
+
+shape = "http://maps.google.com/mapfiles/kml/pal2/icon18.png"
+
+kml_open("gis/field_sites_20200915.kml")
+kml_layer(df_final_kml, colour = '#ff7f00', shape = shape, labels = label)  ##I don't see the label
+kml_close("gis/field_sites_20200915.kml")
+```
+
+
+
+```{r}
+fit_to_page_landscape <- function(ft, pgwidth = 12){
+  
+  ft_out <- ft %>% autofit()
+  
+  ft_out <- width(ft_out, width = dim(ft_out)$widths*pgwidth /(flextable_dim(ft_out)$widths))
+  return(ft_out)
+}
+```
+
+```{r table-sites}
+table <- df_final %>% 
+  st_set_geometry(NULL) %>% 
+  mutate(MoE_region = 'Kootenay') %>%
+  select(MoE_region, everything()) %>% 
+  flextable::flextable() %>%
+  # flextable::my_theme_booktabs(fontsize = 12, left_just_cols = 2) %>%
+  # flextable::autofit() %>%
+  flextable::set_caption('Potential sampling site stream details.') %>%
+    flextable::fontsize(., size = 7, part = "all") %>% 
+  # flextable::autofit() %>% 
+  fit_to_page_landscape() %>% 
+  # flextable::width(j = 9, width = 2) %>% 
+  flextable::width(j = c(1:12), width = 0.6) %>% 
+  flextable::width(j = c(13), width = 1.4) 
+table
+
+```
+
+
+
+```{r table-fish}
+##find the gnis id
+# watersheds <- dbGetQuery(conn,
+#                          "SELECT y.* 
+#                          FROM whse_basemapping.fwa_named_watersheds_poly y
+#                          WHERE (y.gnis_name LIKE 'Parsnip River') ")
+
+
+fish_species_watershed <- sf::st_read(conn,
+                                      query = "SELECT nws.gnis_name,nws.fwa_watershed_code, nws.gnis_id, x.species_code,x.species_name,x.observation_date
+                   FROM whse_fish.fiss_fish_obsrvtn_pnt_sp x
+                   INNER JOIN 
+                   whse_basemapping.fwa_named_watersheds_poly nws
+                   ON ST_intersects(x.geom, nws.geom) 
+                   WHERE gnis_id IN ('16880')
+                           GROUP BY x.species_code,x.species_name,nws.gnis_name,nws.gnis_id,x.observation_date,nws.fwa_watershed_code 
+                           ORDER BY nws.gnis_name,nws.fwa_watershed_code,x.species_code")
+
+fish_species_lookup <- dbGetQuery(conn,
+                                  "Select * from whse_fish.species_codes_lookup")
+
+# fish_species_lookup <- drake::readd(fish_data_submission) %>% 
+#                    purrr::pluck('species_by_group') %>% 
+#                    select(common_name, species_code, scientific_name)
+
+
+fish_species_watershed <- merge (fish_species_watershed,
+                                fish_species_lookup[,c("SPECIES_CODE","SCIENTIFIC_NAME")],
+                                by.x = c("species_code"), by.y = c("SPECIES_CODE"),
+                                all.x = TRUE)
+
+# fish_species_watershed <- left_join(fish_species_watershed,
+#                                     fish_species_lookup,
+#                                     by = "species_code") 
+
+
+##we need to remove Family: from the SCIENTIFIC_NAME column to facilitate a nice sort/lookup
+##we could look at adding it after in brackets maybe
+# fish_species_watershed$scientific_name <- gsub("Family: ", "", fish_species_watershed$scientific_name)
+
+##select rows that have no scientific name 
+no_scientific <- fish_species_watershed[is.na(fish_species_watershed$scientific_name),]
+
+
+
+#use pipes to group 
+fish_table <- fish_species_watershed %>%
+  purrr::set_names(nm = tolower(names(.))) %>% 
+  dplyr::group_by(scientific_name, species_name,gnis_name,species_code) %>%
+  dplyr::summarise(count = n()) %>%
+  dplyr::arrange(gnis_name) %>% ##ditch the rare occurance which look like errors
+  dplyr::filter(count > 1 & 
+           # species_name != 'Dolly Varden' &
+           species_name != 'Rainbow Smelt' &
+           species_code != 'BT/DV' &
+             species_code != 'AF' &
+             species_code != 'OS' &
+             species_code != 'SP' &
+             species_code != 'TR' &
+             species_code != 'LT' & ##just removing lake trout for this one
+             !stringr::str_detect(species_name, "General")) %>%
+  ungroup() %>% 
+  select('Scientific Name' = scientific_name, 'Species Name' = species_name,
+         'Species Code' = species_code) %>% 
+  mutate_all(~replace_na(.,"-")) %>% 
+  mutate_all(~stringr::str_replace_all(.,"NA", "-"))
+  
+
+
+table <- flextable::flextable(fish_table) %>%
+  # flextable::my_theme_booktabs(fontsize = 12, left_just_cols = 2) %>%
+  flextable::autofit() %>%
+  flextable::fontsize(., size = 9, part = "all") %>% 
+  flextable::set_caption('Fish species potentially encountered in Elk River watershed according to fisheries inventory summary records.')
+table
+
+```
+
+```{r burn-xl, eval = F}
+write.xlsx2(as.data.frame(permit_table), file="../docs/permit_details.xlsx", sheetName="sampling_locations", append=FALSE, row.names=FALSE)
+##this one needs to come from the "01_modelled_Part3.... file
+write.xlsx2(as.data.frame(fish_table), file="../docs/permit_details.xlsx", sheetName="potential_species", append=TRUE, row.names=FALSE)
+
+##burn a spatial file too
+sf::st_write(permit_table, "../data/gis/fish_passage_permit_application.gpkg", "potential_sample_sites", delete_layer = F)
+
+```
+
+```{r}
+dbDisconnect(conn = conn)
+```
+
