@@ -156,15 +156,16 @@ tables_all_cleaned <- tables_all %>%
 
 ##turn into a spatial object
 table_sf <- sf::st_as_sf(tables_all_cleaned, coords = c("easting", "northing"), 
-                         crs = 26910, remove = F)
+                         crs = 26911, remove = F)
 
 ##rewrite with the new info added 
 sf::st_write(table_sf, "gis/elk_planning_2020.gpkg", "irvine_columbia_2016", delete_layer = T)
 
 
-##from manual review add these
-## PSCIS 50200, 103042, 50199 (too steep upstream at 103043)
-##pscis_model_combined_id (pmci) - 234688
-##pmci 40886 trib to Elk, 127165 Cokato Ck, 40894 Hartley Ck, 17567 McCool Ck, 34025 Brule, 234681 Weigert Ck, 127535 Trib to Elk
-##
+
+
+
+
+
+
 

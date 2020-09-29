@@ -37,3 +37,13 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+
+# random stuff
+field_maps/*
+R/contract-subin-signature.R
+R/plan.R
+R/functions.R
+data/~*
+*.gpkg-*
+*.mdb
