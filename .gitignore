@@ -47,3 +47,4 @@ R/functions.R
 data/~*
 *.gpkg-*
 *.mdb
+R/drafts/
