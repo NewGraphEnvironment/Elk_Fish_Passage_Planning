@@ -29,10 +29,26 @@ pscis_phase2_sf <-  import_pscis() %>%
 ##this is how we make html tables.  Can add colors or whatever
 make_html_table <- function(df) {
   df %>% 
-  mutate(html_tbl = knitr::kable(df))
+    mutate(html_tbl = knitr::kable(df) %>% 
+             # All cells get a border
+             row_spec(0:nrow(df), extra_css = "border: 1px solid black;") %>% 
+             row_spec(0, background = "yellow")) # header row in blue)
 }
 
 
+
+  # # for left alignment
+  # kable_styling(position = "left") %>%  
+  # # header row in orange
+  # row_spec(0, background = "orange") %>% # header row in orange
+  # # All rows equal A, B, C, D, or E are italic and one font size smaller
+  # row_spec(which(my_df$Month %in% LETTERS[1:5]), font_size = 10, italic = T) %>% 
+  # # All other rows are yellow and bold
+  # row_spec(which(!my_df$Month %in% LETTERS[1:5]), background = "yellow", bold = T) %>% 
+  # # All cells get a border
+  # row_spec(0:nrow(my_df), extra_css = "border: 1px solid black;")
+  
+  
 ##bring in the data, make a html table of each row
 df <- import_pscis(workbook_name = 'pscis_phase1.xlsm') %>%  
   group_split(my_crossing_reference) %>% 
@@ -82,11 +98,15 @@ df_kml <- reproject(df)
 ##burn to kml
 
 ##specify shape
-shape = "http://maps.google.com/mapfiles/kml/paddle/H.png"
+shape = "http://maps.google.com/mapfiles/kml/paddle/C.png"
 
 kml_open("gis/outgoing/pscis_phase2.kml")
 kml_layer(df_kml, shape = shape, colour = barrier_result, labels = my_crossing_reference, html.table = df_kml$html_tbl, z.scale = 2, LabelScale = 1, size = 2)
 kml_close("gis/outgoing/pscis_phase2.kml")
+
+##now we will zip up the kml files in the data folder and rename with kmz
+files_to_zip <- paste0("gis/outgoing/", list.files(path = "gis/outgoing/", pattern = "\\.kml$"))  ##this used to includes the planning file which we don't want to do so watch out
+zip::zipr("gis/outgoing/elk_progress_kml.zip", files = files_to_zip)  ##it does not work to zip to kmz!!
 
 ```
 

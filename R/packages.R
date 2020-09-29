@@ -7,5 +7,6 @@ pacman::p_load(
   janitor,
   leafem,
   leaflet,
-  plotKML
+  plotKML,
+  kableExtra
   )
