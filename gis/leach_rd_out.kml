@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="leach_rd_out" id="leach_rd_out">
+	<SimpleField name="fid" type="int"></SimpleField>
+	<SimpleField name="crossing_id" type="int"></SimpleField>
+	<SimpleField name="digital_road_atlas_line_id" type="int"></SimpleField>
+	<SimpleField name="highway_route_number" type="string"></SimpleField>
+	<SimpleField name="road_class" type="string"></SimpleField>
+	<SimpleField name="road_name_full" type="string"></SimpleField>
+	<SimpleField name="road_surface" type="string"></SimpleField>
+	<SimpleField name="trim_transportation_lines_id" type="int"></SimpleField>
+	<SimpleField name="ften_road_segment_line_id" type="int"></SimpleField>
+	<SimpleField name="forest_file_id" type="string"></SimpleField>
+	<SimpleField name="road_section_id" type="string"></SimpleField>
+	<SimpleField name="road_responsibility_type_code" type="string"></SimpleField>
+	<SimpleField name="retirement_date" type="string"></SimpleField>
+	<SimpleField name="file_status_code" type="string"></SimpleField>
+	<SimpleField name="file_type_code" type="string"></SimpleField>
+	<SimpleField name="file_type_description" type="string"></SimpleField>
+	<SimpleField name="client_number" type="string"></SimpleField>
+	<SimpleField name="client_name" type="string"></SimpleField>
+	<SimpleField name="life_cycle_status_code" type="string"></SimpleField>
+	<SimpleField name="map_label" type="string"></SimpleField>
+	<SimpleField name="og_road_segment_permit_id" type="int"></SimpleField>
+	<SimpleField name="og_petrlm_dev_rd_pre06_pub_id" type="int"></SimpleField>
+	<SimpleField name="track_segment_id" type="string"></SimpleField>
+	<SimpleField name="track_name" type="string"></SimpleField>
+	<SimpleField name="track_classification" type="string"></SimpleField>
+	<SimpleField name="use_type" type="string"></SimpleField>
+	<SimpleField name="gauge" type="string"></SimpleField>
+	<SimpleField name="status" type="string"></SimpleField>
+	<SimpleField name="operator_english_name" type="string"></SimpleField>
+	<SimpleField name="owner_name" type="string"></SimpleField>
+	<SimpleField name="fcode" type="string"></SimpleField>
+	<SimpleField name="fcode_label" type="string"></SimpleField>
+	<SimpleField name="utm_zone" type="int"></SimpleField>
+	<SimpleField name="utm_easting" type="float"></SimpleField>
+	<SimpleField name="utm_northing" type="float"></SimpleField>
+	<SimpleField name="linear_feature_id" type="float"></SimpleField>
+	<SimpleField name="stream_name" type="string"></SimpleField>
+	<SimpleField name="blue_line_key" type="int"></SimpleField>
+	<SimpleField name="edge_type" type="int"></SimpleField>
+	<SimpleField name="downstream_route_measure" type="float"></SimpleField>
+	<SimpleField name="fwa_fcode" type="string"></SimpleField>
+	<SimpleField name="fwa_fcode_label" type="string"></SimpleField>
+	<SimpleField name="fwa_watershed_code" type="string"></SimpleField>
+	<SimpleField name="local_watershed_code" type="string"></SimpleField>
+	<SimpleField name="watershed_group_code" type="string"></SimpleField>
+	<SimpleField name="wscode_ltree" type="string"></SimpleField>
+	<SimpleField name="localcode_ltree" type="string"></SimpleField>
+	<SimpleField name="downstream_event_id" type="float"></SimpleField>
+	<SimpleField name="fish_habitat" type="string"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_00_03" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_03_05" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_05_08" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_08_15" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_15_22" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_22_30" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_00_03" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_03_05" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_05_08" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_08_15" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_15_22" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_22_30" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_00_03" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_03_05" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_05_08" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_08_15" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_15_22" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_22_30" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_00_03" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_03_05" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_05_08" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_08_15" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_15_22" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_22_30" type="float"></SimpleField>
+	<SimpleField name="uphab_gross_sub15" type="float"></SimpleField>
+	<SimpleField name="uphab_gross_sub22" type="float"></SimpleField>
+	<SimpleField name="dnstr_crossing_ids" type="string"></SimpleField>
+	<SimpleField name="upstr_crossing_ids" type="string"></SimpleField>
+	<SimpleField name="upstr_species" type="string"></SimpleField>
+	<SimpleField name="upstr_alake_gross_obs" type="float"></SimpleField>
+	<SimpleField name="upstr_alake_gross_inf" type="float"></SimpleField>
+	<SimpleField name="upstr_alake_gross_non" type="float"></SimpleField>
+	<SimpleField name="upstr_ares_gross_obs" type="float"></SimpleField>
+	<SimpleField name="upstr_ares_gross_inf" type="float"></SimpleField>
+	<SimpleField name="upstr_ares_gross_non" type="float"></SimpleField>
+	<SimpleField name="upstr_awet_gross_all" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_00_03_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_03_05_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_05_08_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_08_15_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_15_22_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_22_30_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_gt30_len" type="float"></SimpleField>
+	<SimpleField name="dbm_mof_50k_grid_map_tile" type="string"></SimpleField>
+	<SimpleField name="bcgs_20k_grid_map_tile" type="string"></SimpleField>
+</Schema>
+<Folder><name>leach_rd_out</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#leach_rd_out">
+		<SimpleData name="fid">100773</SimpleData>
+		<SimpleData name="crossing_id">4600380</SimpleData>
+		<SimpleData name="digital_road_atlas_line_id">335757</SimpleData>
+		<SimpleData name="road_class">resource</SimpleData>
+		<SimpleData name="road_name_full">Leach Creek FSR</SimpleData>
+		<SimpleData name="road_surface">paved</SimpleData>
+		<SimpleData name="utm_zone">11</SimpleData>
+		<SimpleData name="utm_easting">660312.706571404</SimpleData>
+		<SimpleData name="utm_northing">5482521.18873908</SimpleData>
+		<SimpleData name="linear_feature_id">706843591</SimpleData>
+		<SimpleData name="stream_name">Leach Creek</SimpleData>
+		<SimpleData name="blue_line_key">356569619</SimpleData>
+		<SimpleData name="edge_type">1000</SimpleData>
+		<SimpleData name="downstream_route_measure">15882.2138815822</SimpleData>
+		<SimpleData name="fwa_fcode">GA24850000</SimpleData>
+		<SimpleData name="fwa_fcode_label">River/Stream - Definite</SimpleData>
+		<SimpleData name="fwa_watershed_code">300-625474-584724-412090-486369-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000</SimpleData>
+		<SimpleData name="local_watershed_code">300-625474-584724-412090-486369-665920-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000-000000</SimpleData>
+		<SimpleData name="watershed_group_code">ELKR</SimpleData>
+		<SimpleData name="wscode_ltree">300.625474.584724.412090.486369</SimpleData>
+		<SimpleData name="localcode_ltree">300.625474.584724.412090.486369.665920</SimpleData>
+		<SimpleData name="downstream_event_id">4600137</SimpleData>
+		<SimpleData name="fish_habitat">FISH HABITAT - OBSERVED - 080-150PCT</SimpleData>
+		<SimpleData name="hab_l_gross_inf_00_03">217.84227122</SimpleData>
+		<SimpleData name="hab_l_gross_inf_03_05">39.0839748297</SimpleData>
+		<SimpleData name="hab_l_gross_inf_05_08">4787.19097885701</SimpleData>
+		<SimpleData name="hab_l_gross_inf_08_15">10278.4644282616</SimpleData>
+		<SimpleData name="hab_l_gross_inf_15_22">0</SimpleData>
+		<SimpleData name="hab_l_gross_inf_22_30">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_00_03">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_03_05">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_05_08">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_08_15">1431.60477831402</SimpleData>
+		<SimpleData name="hab_l_gross_obs_15_22">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_22_30">0</SimpleData>
+		<SimpleData name="uphab_l_net_inf_00_03">0</SimpleData>
+		<SimpleData name="uphab_l_net_inf_03_05">10.0256576316</SimpleData>
+		<SimpleData name="uphab_l_net_inf_05_08">307.83152898713</SimpleData>
+		<SimpleData name="uphab_l_net_inf_08_15">0</SimpleData>
+		<SimpleData name="uphab_l_net_inf_15_22">0</SimpleData>
+		<SimpleData name="uphab_l_net_inf_22_30">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_00_03">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_03_05">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_05_08">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_08_15">480.981443032202</SimpleData>
+		<SimpleData name="uphab_l_net_obs_15_22">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_22_30">0</SimpleData>
+		<SimpleData name="uphab_gross_sub15">16754.1864314824</SimpleData>
+		<SimpleData name="uphab_gross_sub22">16754.1864314824</SimpleData>
+		<SimpleData name="dnstr_crossing_ids">4600137,4601035,4601018</SimpleData>
+		<SimpleData name="upstr_crossing_ids">4600379,4600381,4600587,4600588,4600590,4600591,4600592,4600593,4600595,4600653,4600840,4600841,4600842,4600844,4600846,4600848,4600849,4600850,4600851,4600852,4600853,4600934,4601517,4602209,4600378,4607572,4605844,4605843,4600843,4600847,4601519,4600589,4600594,4600845</SimpleData>
+		<SimpleData name="upstr_species">EB,WCT</SimpleData>
+		<SimpleData name="upstr_alake_gross_inf">0.407502731782198</SimpleData>
+		<SimpleData name="upstr_awet_gross_all">0.720096324905753</SimpleData>
+		<SimpleData name="upstr_avg_slope_00_03_len">4099.05119243024</SimpleData>
+		<SimpleData name="upstr_avg_slope_03_05_len">4490.77315641651</SimpleData>
+		<SimpleData name="upstr_avg_slope_05_08_len">4718.54665475946</SimpleData>
+		<SimpleData name="upstr_avg_slope_08_15_len">15203.122652781</SimpleData>
+		<SimpleData name="upstr_avg_slope_15_22_len">9318.58998705782</SimpleData>
+		<SimpleData name="upstr_avg_slope_22_30_len">9470.60710335929</SimpleData>
+		<SimpleData name="upstr_avg_slope_gt30_len">19719.0002465609</SimpleData>
+		<SimpleData name="dbm_mof_50k_grid_map_tile">082G114</SimpleData>
+		<SimpleData name="bcgs_20k_grid_map_tile">082G047</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-114.78704810925,49.4741540403622</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

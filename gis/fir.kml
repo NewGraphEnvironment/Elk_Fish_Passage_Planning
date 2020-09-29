@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="fir" id="fir">
+	<SimpleField name="fid" type="float"></SimpleField>
+	<SimpleField name="id" type="int"></SimpleField>
+	<SimpleField name="pscis_model_combined_id" type="int"></SimpleField>
+	<SimpleField name="pscis_stream_crossing_id" type="int"></SimpleField>
+	<SimpleField name="model_crossing_id" type="int"></SimpleField>
+	<SimpleField name="linear_feature_id" type="float"></SimpleField>
+	<SimpleField name="stream_name" type="string"></SimpleField>
+	<SimpleField name="blue_line_key" type="int"></SimpleField>
+	<SimpleField name="downstream_route_measure" type="float"></SimpleField>
+	<SimpleField name="watershed_group_code" type="string"></SimpleField>
+	<SimpleField name="wscode" type="string"></SimpleField>
+	<SimpleField name="localcode" type="string"></SimpleField>
+	<SimpleField name="downstream_event_id" type="float"></SimpleField>
+	<SimpleField name="fish_habitat" type="string"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_00_03" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_03_05" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_05_08" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_08_15" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_15_22" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_inf_22_30" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_00_03" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_03_05" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_05_08" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_08_15" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_15_22" type="float"></SimpleField>
+	<SimpleField name="hab_l_gross_obs_22_30" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_00_03" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_03_05" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_05_08" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_08_15" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_15_22" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_inf_22_30" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_00_03" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_03_05" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_05_08" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_08_15" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_15_22" type="float"></SimpleField>
+	<SimpleField name="uphab_l_net_obs_22_30" type="float"></SimpleField>
+	<SimpleField name="uphab_gross_sub15" type="float"></SimpleField>
+	<SimpleField name="uphab_gross_sub22" type="float"></SimpleField>
+	<SimpleField name="dnstr_crossing_ids" type="string"></SimpleField>
+	<SimpleField name="upstr_crossing_ids" type="string"></SimpleField>
+	<SimpleField name="upstr_species" type="string"></SimpleField>
+	<SimpleField name="upstr_alake_gross_obs" type="float"></SimpleField>
+	<SimpleField name="upstr_alake_gross_inf" type="float"></SimpleField>
+	<SimpleField name="upstr_alake_gross_non" type="float"></SimpleField>
+	<SimpleField name="upstr_ares_gross_obs" type="float"></SimpleField>
+	<SimpleField name="upstr_ares_gross_inf" type="float"></SimpleField>
+	<SimpleField name="upstr_ares_gross_non" type="float"></SimpleField>
+	<SimpleField name="upstr_awet_gross_all" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_00_03_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_03_05_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_05_08_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_08_15_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_15_22_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_22_30_len" type="float"></SimpleField>
+	<SimpleField name="upstr_avg_slope_gt30_len" type="float"></SimpleField>
+	<SimpleField name="dbm_mof_50k_grid_map_tile" type="string"></SimpleField>
+	<SimpleField name="bcgs_20k_grid_map_tile" type="string"></SimpleField>
+	<SimpleField name="misc_point_id" type="int"></SimpleField>
+	<SimpleField name="stream_crossing_id" type="int"></SimpleField>
+	<SimpleField name="distance" type="float"></SimpleField>
+	<SimpleField name="matched" type="string"></SimpleField>
+</Schema>
+<Folder><name>fir</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#fir">
+		<SimpleData name="fid">205</SimpleData>
+		<SimpleData name="id">46053</SimpleData>
+		<SimpleData name="pscis_model_combined_id">34378</SimpleData>
+		<SimpleData name="model_crossing_id">4602333</SimpleData>
+		<SimpleData name="linear_feature_id">706835685</SimpleData>
+		<SimpleData name="blue_line_key">356558325</SimpleData>
+		<SimpleData name="downstream_route_measure">2739.39343657529</SimpleData>
+		<SimpleData name="watershed_group_code">ELKR</SimpleData>
+		<SimpleData name="wscode">300.625474.584724.412090.249462</SimpleData>
+		<SimpleData name="localcode">300.625474.584724.412090.249462.296001</SimpleData>
+		<SimpleData name="downstream_event_id">5811</SimpleData>
+		<SimpleData name="fish_habitat">FISH HABITAT - OBSERVED - 150-220PCT</SimpleData>
+		<SimpleData name="hab_l_gross_inf_00_03">436.0760749267</SimpleData>
+		<SimpleData name="hab_l_gross_inf_03_05">0</SimpleData>
+		<SimpleData name="hab_l_gross_inf_05_08">225.268329499</SimpleData>
+		<SimpleData name="hab_l_gross_inf_08_15">1432.432491247</SimpleData>
+		<SimpleData name="hab_l_gross_inf_15_22">19.1945661543709</SimpleData>
+		<SimpleData name="hab_l_gross_inf_22_30">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_00_03">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_03_05">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_05_08">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_08_15">0</SimpleData>
+		<SimpleData name="hab_l_gross_obs_15_22">2328.38535753556</SimpleData>
+		<SimpleData name="hab_l_gross_obs_22_30">0</SimpleData>
+		<SimpleData name="uphab_l_net_inf_00_03">135.153757392419</SimpleData>
+		<SimpleData name="uphab_l_net_inf_03_05">0</SimpleData>
+		<SimpleData name="uphab_l_net_inf_05_08">0</SimpleData>
+		<SimpleData name="uphab_l_net_inf_08_15">245.536617352177</SimpleData>
+		<SimpleData name="uphab_l_net_inf_15_22">0</SimpleData>
+		<SimpleData name="uphab_l_net_inf_22_30">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_00_03">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_03_05">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_05_08">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_08_15">0</SimpleData>
+		<SimpleData name="uphab_l_net_obs_15_22">1842.50571155754</SimpleData>
+		<SimpleData name="uphab_l_net_obs_22_30">0</SimpleData>
+		<SimpleData name="uphab_gross_sub15">2093.7768956727</SimpleData>
+		<SimpleData name="uphab_gross_sub22">4441.35681936263</SimpleData>
+		<SimpleData name="dnstr_crossing_ids">3878,5811</SimpleData>
+		<SimpleData name="upstr_crossing_ids">34540,34398,34354,34243</SimpleData>
+		<SimpleData name="upstr_species">WCT</SimpleData>
+		<SimpleData name="upstr_avg_slope_00_03_len">17</SimpleData>
+		<SimpleData name="upstr_avg_slope_03_05_len">553</SimpleData>
+		<SimpleData name="upstr_avg_slope_05_08_len">1752</SimpleData>
+		<SimpleData name="upstr_avg_slope_08_15_len">3709</SimpleData>
+		<SimpleData name="upstr_avg_slope_15_22_len">4582</SimpleData>
+		<SimpleData name="upstr_avg_slope_22_30_len">2208</SimpleData>
+		<SimpleData name="upstr_avg_slope_gt30_len">2378</SimpleData>
+		<SimpleData name="dbm_mof_50k_grid_map_tile">082G118</SimpleData>
+		<SimpleData name="bcgs_20k_grid_map_tile">082G066</SimpleData>
+		<SimpleData name="misc_point_id">205</SimpleData>
+		<SimpleData name="stream_crossing_id">50248</SimpleData>
+		<SimpleData name="distance">492.789099005387</SimpleData>
+		<SimpleData name="matched">no</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-114.812781443563,49.6609084528287</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

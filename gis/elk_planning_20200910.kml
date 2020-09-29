@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="elk_planning_20200910" id="elk_planning_20200910">
+	<SimpleField name="Name" type="string"></SimpleField>
+	<SimpleField name="fid" type="float"></SimpleField>
+	<SimpleField name="watershed_group" type="string"></SimpleField>
+	<SimpleField name="stream" type="string"></SimpleField>
+	<SimpleField name="road_segment_id" type="string"></SimpleField>
+	<SimpleField name="easting" type="string"></SimpleField>
+	<SimpleField name="northing" type="string"></SimpleField>
+	<SimpleField name="hgi_km" type="string"></SimpleField>
+	<SimpleField name="stream_width" type="string"></SimpleField>
+	<SimpleField name="road_tenure" type="string"></SimpleField>
+	<SimpleField name="reference" type="string"></SimpleField>
+	<SimpleField name="notes" type="string"></SimpleField>
+	<SimpleField name="keep_2020" type="string"></SimpleField>
+	<SimpleField name="notes_2020" type="string"></SimpleField>
+</Schema>
+<Folder><name>elk_planning_20200910</name>
+  <Placemark>
+	<name>LZRD021(62661)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">4</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Lizard Ck Trib</SimpleData>
+		<SimpleData name="road_segment_id">Mt. Fernie</SimpleData>
+		<SimpleData name="easting">638000</SimpleData>
+		<SimpleData name="northing">5483390</SimpleData>
+		<SimpleData name="hgi_km">3</SimpleData>
+		<SimpleData name="stream_width">2.35</SimpleData>
+		<SimpleData name="road_tenure">MoT</SimpleData>
+		<SimpleData name="reference">Vast 2013</SimpleData>
+		<SimpleData name="notes">Great potential for replacement.</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-115.094555173848,49.4874459902451</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>MORR019(103216)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">5</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Morrissey Ck</SimpleData>
+		<SimpleData name="road_segment_id">LodgepoleRd (546602)</SimpleData>
+		<SimpleData name="easting">645674</SimpleData>
+		<SimpleData name="northing">5469026</SimpleData>
+		<SimpleData name="hgi_km">2.8</SimpleData>
+		<SimpleData name="stream_width">2.5</SimpleData>
+		<SimpleData name="road_tenure">DRM</SimpleData>
+		<SimpleData name="reference">Vast 2013</SimpleData>
+		<SimpleData name="notes">High value habitat located upstream atMorrisey02 (Grainger 2012).  This crossingfrom VAST 2012 (PSCIS 50185)</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-114.993935482319,49.3565285539592</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Lizard02(51193)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">6</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Trib toLizard Ck</SimpleData>
+		<SimpleData name="road_segment_id">Mt FerniePark Rd</SimpleData>
+		<SimpleData name="easting">636121</SimpleData>
+		<SimpleData name="northing">5484097</SimpleData>
+		<SimpleData name="hgi_km">2.2</SimpleData>
+		<SimpleData name="stream_width">3.4</SimpleData>
+		<SimpleData name="road_tenure">Non-status</SimpleData>
+		<SimpleData name="reference">Grainger2012</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-115.12024134905,49.4942262643356</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>LZRD015(62656)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">7</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Lizard Ck Trib</SimpleData>
+		<SimpleData name="road_segment_id">Mt. Fernie</SimpleData>
+		<SimpleData name="easting">636137</SimpleData>
+		<SimpleData name="northing">5484091</SimpleData>
+		<SimpleData name="hgi_km">1.8</SimpleData>
+		<SimpleData name="stream_width">2.5</SimpleData>
+		<SimpleData name="road_tenure">Non-status</SimpleData>
+		<SimpleData name="reference">Vast 2013</SimpleData>
+		<SimpleData name="notes">Might be unassessed crossing located 60 mdownstream.</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-115.120022589465,49.494168734737</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>LZRD012(6265)  3</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">8</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Lizard Ck Trib</SimpleData>
+		<SimpleData name="road_segment_id">Mt. Fernie</SimpleData>
+		<SimpleData name="easting">634163</SimpleData>
+		<SimpleData name="northing">5484538</SimpleData>
+		<SimpleData name="hgi_km">1.6</SimpleData>
+		<SimpleData name="stream_width">2</SimpleData>
+		<SimpleData name="road_tenure">Non-status</SimpleData>
+		<SimpleData name="reference">Vast 2013</SimpleData>
+		<SimpleData name="notes">Unassessed crossing located 0.4 kmupstream.</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-115.147115575971,49.4986270116982</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>MICH011(103174)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">9</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Trib to MichelCk</SimpleData>
+		<SimpleData name="road_segment_id">Wheeler NRd</SimpleData>
+		<SimpleData name="easting">659211</SimpleData>
+		<SimpleData name="northing">5499658</SimpleData>
+		<SimpleData name="hgi_km">1.5</SimpleData>
+		<SimpleData name="stream_width">2.1</SimpleData>
+		<SimpleData name="road_tenure">Non-status</SimpleData>
+		<SimpleData name="reference">Vast 2013</SimpleData>
+		<SimpleData name="notes">Also Michel18 or PCSIS 50240 (Grainger2012).  HGI is to upstream crossing barriersMichel21/23 (Grainger 2012).</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-114.795319303285,49.6284714196842</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Morrisey15(50194)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">10</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Trib toMorrisey Ck</SimpleData>
+		<SimpleData name="road_segment_id">Morrisey(R083661)</SimpleData>
+		<SimpleData name="easting">651245</SimpleData>
+		<SimpleData name="northing">5475072</SimpleData>
+		<SimpleData name="hgi_km">1.4</SimpleData>
+		<SimpleData name="stream_width">2.9</SimpleData>
+		<SimpleData name="road_tenure">CanadianForestProducts Ltd.</SimpleData>
+		<SimpleData name="reference">Grainger2012</SimpleData>
+		<SimpleData name="notes">One unassessed crossing 0.5 km upstream.</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-114.914970779543,49.4095199908389</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Lizard01(50152)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">12</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Trib toLizard Ck</SimpleData>
+		<SimpleData name="road_segment_id">Mt FerniePark Rd</SimpleData>
+		<SimpleData name="easting">637987</SimpleData>
+		<SimpleData name="northing">5483407</SimpleData>
+		<SimpleData name="hgi_km">1.1</SimpleData>
+		<SimpleData name="stream_width">2.4</SimpleData>
+		<SimpleData name="road_tenure">MoT</SimpleData>
+		<SimpleData name="reference">Grainger2012</SimpleData>
+		<SimpleData name="notes">EB, BT and WCT known in mainstem</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-115.094728634811,49.4876017739182</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Lizard08(51199)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">13</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Trib toLizard Ck</SimpleData>
+		<SimpleData name="road_segment_id">Mt FerniePark Rd</SimpleData>
+		<SimpleData name="easting">633304</SimpleData>
+		<SimpleData name="northing">5484606</SimpleData>
+		<SimpleData name="hgi_km">1</SimpleData>
+		<SimpleData name="stream_width">3.5</SimpleData>
+		<SimpleData name="road_tenure">Non-status</SimpleData>
+		<SimpleData name="reference">Grainger2012</SimpleData>
+		<SimpleData name="notes">Stream is not mapped</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-115.158949553563,49.4994277019392</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Morrisey02(51221)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">14</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Trib toMorrisy Ck  e</SimpleData>
+		<SimpleData name="road_segment_id">Lodgepole(5466 01)</SimpleData>
+		<SimpleData name="easting">648294</SimpleData>
+		<SimpleData name="northing">5468176</SimpleData>
+		<SimpleData name="hgi_km">0.7</SimpleData>
+		<SimpleData name="stream_width">3.7</SimpleData>
+		<SimpleData name="road_tenure">DRM</SimpleData>
+		<SimpleData name="reference">Grainger2012</SimpleData>
+		<SimpleData name="notes">Also MORRO074 (Vast 2012). Looks like verygood potential</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-114.958195967095,49.3482560193448</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Morrisey19(50198)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">15</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Trib toMorrisey Ck</SimpleData>
+		<SimpleData name="road_segment_id">Morrisey</SimpleData>
+		<SimpleData name="easting">651593</SimpleData>
+		<SimpleData name="northing">5476509</SimpleData>
+		<SimpleData name="hgi_km">0.6</SimpleData>
+		<SimpleData name="stream_width">2.8</SimpleData>
+		<SimpleData name="road_tenure">Non-status</SimpleData>
+		<SimpleData name="reference">Grainger2012</SimpleData>
+		<SimpleData name="notes">High value step-pool habitat.  One unassessedcrossing upstream (200 m). Fairly steepsystem.</SimpleData>
+		<SimpleData name="notes_2020">looks good Morrisey21 just up the road</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-114.909627929359,49.4223505638941</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Morrisey1651235)  (</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">16</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Trib toMorriseyCreek</SimpleData>
+		<SimpleData name="road_segment_id">Morrisey(R083661)</SimpleData>
+		<SimpleData name="easting">651669</SimpleData>
+		<SimpleData name="northing">5475526</SimpleData>
+		<SimpleData name="hgi_km">0.5</SimpleData>
+		<SimpleData name="stream_width">3.4</SimpleData>
+		<SimpleData name="road_tenure">CanadianForestProducts Ltd.</SimpleData>
+		<SimpleData name="reference">Grainger2012</SimpleData>
+		<SimpleData name="notes">Fairly steep system</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-114.908956284656,49.4134954680894</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>Morrisey21(50200)</name>
+	<ExtendedData><SchemaData schemaUrl="#elk_planning_20200910">
+		<SimpleData name="fid">17</SimpleData>
+		<SimpleData name="watershed_group">ELKR</SimpleData>
+		<SimpleData name="stream">Trib toMorrisey Ck</SimpleData>
+		<SimpleData name="road_segment_id">Morriseyspur</SimpleData>
+		<SimpleData name="easting">651913</SimpleData>
+		<SimpleData name="northing">5477123</SimpleData>
+		<SimpleData name="hgi_km">0.4</SimpleData>
+		<SimpleData name="stream_width">2.7</SimpleData>
+		<SimpleData name="road_tenure">Non-status</SimpleData>
+		<SimpleData name="reference">Grainger2012</SimpleData>
+		<SimpleData name="notes">HGI to crossing barrier (Morrisey23)upstream. Fairly steep system.</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-114.904983344692,49.4277899405786</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="GDAL 3.0.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ogr="http://osgeo.org/gdal" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata><bounds minlat="49.342348985398971" minlon="-115.158949553563130" maxlat="50.218683241932375" maxlon="-114.667458893178680"/></metadata>              
+<wpt lat="49.678565672940962" lon="-114.81653791049258">
+  <name>50249 pmc-4772</name>
+  <desc>082G118 Michel51 (PSCIS 50273) is downstream at 1.2km at Hwy 3 Roberts Ck non-fish in model due to steep gradients at mouth - could be hwy fill though</desc>
+</wpt>
+<wpt lat="49.487445990245071" lon="-115.09455517384806">
+  <name>62521 pmc-5229</name>
+  <desc>082G113 Great potential for replacement. NA</desc>
+</wpt>
+<wpt lat="49.356528553959222" lon="-114.99393548231909">
+  <name>50185 pmc-6295</name>
+  <desc>082G108 High value habitat located upstream atMorrisey02 (Grainger 2012).  This crossingfrom VAST 2012 (PSCIS 50185) NA</desc>
+</wpt>
+<wpt lat="49.494226264335623" lon="-115.12024134905023">
+  <name>50153 pmc-4657</name>
+  <desc>082G113 NA NA</desc>
+</wpt>
+<wpt lat="49.494168734737038" lon="-115.12002258946515">
+  <name>62516 pmc-4656</name>
+  <desc>082G113 Might be unassessed crossing located 60 mdownstream. NA</desc>
+</wpt>
+<wpt lat="49.498627011698225" lon="-115.14711557597138">
+  <name>50158 pmc-4552</name>
+  <desc>082G113 Unassessed crossing located 0.4 kmupstream. NA</desc>
+</wpt>
+<wpt lat="49.628471419684189" lon="-114.79531930328545">
+  <name>102994 pmc-4514</name>
+  <desc>082G119 Also Michel18 or PCSIS 50240 (Grainger2012).  HGI is to upstream crossing barriersMichel21/23 (Grainger 2012). NA</desc>
+</wpt>
+<wpt lat="49.409519990838895" lon="-114.91497077954335">
+  <name>50194 pmc-5174</name>
+  <desc>082G113 One unassessed crossing 0.5 km upstream. NA</desc>
+</wpt>
+<wpt lat="49.688409333821468" lon="-114.81380898607226">
+  <name>50273 pmc-4770</name>
+  <desc>082G118 HGI to Michel27. Roberts Ck non-fish in model due to steep gradients at mouth - could be hwy fill though</desc>
+</wpt>
+<wpt lat="49.487601773918222" lon="-115.09472863481079">
+  <name>50152 pmc-5230</name>
+  <desc>082G113 EB, BT and WCT known in mainstem NA</desc>
+</wpt>
+<wpt lat="49.499427701939126" lon="-115.15894955356313">
+  <name>50159 pmc-5854</name>
+  <desc>082G113 Stream is not mapped NA</desc>
+</wpt>
+<wpt lat="49.348256019344788" lon="-114.95819596709489">
+  <name>50181 pmc-6297</name>
+  <desc>082G108 Also MORRO074 (Vast 2012). Looks like verygood potential NA</desc>
+</wpt>
+<wpt lat="49.422350563894106" lon="-114.90962792935917">
+  <name>50198 pmc-4110</name>
+  <desc>082G113 High value step-pool habitat.  One unassessedcrossing upstream (200 m). Fairly steepsystem. looks good Morrisey21 just up the road</desc>
+</wpt>
+<wpt lat="49.413495468089394" lon="-114.90895628465555">
+  <name>50195 pmc-4939</name>
+  <desc>082G113 Fairly steep system NA</desc>
+</wpt>
+<wpt lat="49.424312191001661" lon="-114.90816546750513">
+  <name>50199 pmc-4464</name>
+  <desc>082G113 Potential barrier based on fish bearing status of Morrissey Creek NA</desc>
+</wpt>
+<wpt lat="49.427789934518543" lon="-114.90498333980172">
+  <name>50200 pmc-4653</name>
+  <desc>082G113 Good candidate for replacement.  Dependant on fish bearing status for Morrissey Creek NA</desc>
+</wpt>
+<wpt lat="49.538009973659825" lon="-114.72105821522177">
+  <name>50254 pmc-6152</name>
+  <desc>082G114 3 culverts (1.2m diameter for each)  Beaver pond on inlet.  Hwy culvert below. NA</desc>
+</wpt>
+<wpt lat="49.459152992352351" lon="-114.66745889317868">
+  <name>50261 pmc-5739</name>
+  <desc>082G114 3x900mm CMPs, unknown fish presence NA</desc>
+</wpt>
+<wpt lat="49.890616136321661" lon="-114.77774231011659">
+  <name>62499 pmc-5330</name>
+  <desc>082G124 Road not in use. Some rearing habitat available. NA</desc>
+</wpt>
+<wpt lat="49.43073980907036" lon="-114.90643003488347">
+  <name>103042 pmc-4655</name>
+  <desc>082G113 Good candidate. NA</desc>
+</wpt>
+<wpt lat="49.77734079983027" lon="-114.71326545748254">
+  <name>112353 pmc-5089</name>
+  <desc>082G119 Culvert needs re-alignment NA</desc>
+</wpt>
+<wpt lat="50.218683241932375" lon="-114.97225369660923">
+  <name>NA pmc-17554</name>
+  <desc>082J108 NA NA</desc>
+</wpt>
+<wpt lat="49.630305758275284" lon="-114.94535655981106">
+  <name>NA pmc-17567</name>
+  <desc>082G118 NA NA</desc>
+</wpt>
+<wpt lat="49.89313154509378" lon="-114.88887835198913">
+  <name>NA pmc-34025</name>
+  <desc>082G123 NA NA</desc>
+</wpt>
+<wpt lat="49.382530741005525" lon="-115.01965281744603">
+  <name>NA pmc-40886</name>
+  <desc>082G108 NA NA</desc>
+</wpt>
+<wpt lat="49.548638763364202" lon="-115.01519293728958">
+  <name>NA pmc-40894</name>
+  <desc>082G113 NA NA</desc>
+</wpt>
+<wpt lat="49.815184414958587" lon="-114.88215624955086">
+  <name>NA pmc-40931</name>
+  <desc>082G123 NA NA</desc>
+</wpt>
+<wpt lat="49.849213106524886" lon="-114.76758137333451">
+  <name>NA pmc-94439</name>
+  <desc>082G124 NA NA</desc>
+</wpt>
+<wpt lat="49.449850924044782" lon="-115.05444028129509">
+  <name>NA pmc-127165</name>
+  <desc>082G113 NA NA</desc>
+</wpt>
+<wpt lat="50.124839691830189" lon="-114.94705074082394">
+  <name>NA pmc-127535</name>
+  <desc>082J103 NA NA</desc>
+</wpt>
+<wpt lat="50.175577120068603" lon="-114.9891212195307">
+  <name>NA pmc-127536</name>
+  <desc>082J103 NA NA</desc>
+</wpt>
+<wpt lat="49.921952292781569" lon="-114.90817274869754">
+  <name>NA pmc-234681</name>
+  <desc>082G123 NA NA</desc>
+</wpt>
+<wpt lat="49.342348985398971" lon="-115.01325169096643">
+  <name>NA pmc-234688</name>
+  <desc>082G108 NA NA</desc>
+</wpt>
+</gpx>
