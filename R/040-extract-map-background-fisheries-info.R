@@ -172,3 +172,23 @@ fish_sampling_data <- left_join(site_location_data,
 
 ##burn to th geopackage for now
 sf::st_write(fish_sampling_data, "gis/elk_planning_2020.gpkg", "masse_2016", delete_layer = T)
+
+######interior 2010 for morrisey
+path <- paste0(getwd(), "/data/interior_2010_Fish_Site_Mtd.xlsx")
+
+fish_data_submission = path %>% 
+  readxl::excel_sheets() %>% 
+  purrr::set_names() %>% 
+  purrr::map(read_excel, 
+             path = path, 
+             .name_repair = janitor::make_clean_names) %>% 
+  purrr::set_names(janitor::make_clean_names(names(.))) %>% 
+  pluck(1)
+
+
+##turn into spatial object
+fish_data_submission <- fish_data_submission %>% 
+  st_as_sf(coords = c('utm_easting','utm_northing'), remove = F, crs = 26910)
+
+##burn to th geopackage for now
+sf::st_write(fish_data_submission, "gis/elk_planning_2020.gpkg", "interior_2010", delete_layer = T)
