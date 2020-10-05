@@ -1,12 +1,3 @@
-##update 20191028
-##author Al Irvine
-##tweaks download only specific chunks of PSCIS data and visualize
-##add the "last updated" info to the data so we can query whether to bother updating at a later date
-
-
-# remotes::install_github("bcgov/bcdata")
-# remotes::install_github("bcgov/bcmaps")
-# library(bcmaps)
 {
   library(bcdata)
   library(sf)
@@ -15,28 +6,15 @@
   options(timeout=180)##increase your timeout limit to allow download of bigger files
 }
 
-# bcdc_get_record("7ecfafa6-5e18-48cd-8d9b-eae5b5ea2881")
-# bcdc_tidy_resources("7ecfafa6-5e18-48cd-8d9b-eae5b5ea2881")
-# 
-# 
+
 # ##here we type our search term in to look for layers. Could use bcdc_browse() 
 bcdc_search("pscis", type = "Geographic", n = 83)
 bcdc_get_record("572595ab-0a25-452a-a857-1b6bb9c30495")
-# 
-# #ecosections-ecoregion-ecosystem-classification-of-british-columbia : ccc01f43-860d-4583-8ba4-e72d8379441e
-# #utm-zones-of-british-columbia
-# #water-rights-licences-public :5549cae0-c2b1-4b96-9777-529d9720803c
-# #pscis-assessments : 7ecfafa6-5e18-48cd-8d9b-eae5b5ea2881
-# 
-# ##should start a lookup table for these layers
-# get_this <- bcdc_tidy_resources("pscis-assessments") %>% 
-#   filter(bcdata_available == T)  %>% 
-#   pull(package_id)
+
   
 ##name the layer you want to download
 get_this <- "1596afbf-f427-4f26-9bca-d78bceddf485"
 
-get <- get_this
 
 ##define what happens when we go to download
 bcdata_download <- function(get = get_this, crs = 3005){
@@ -115,3 +93,19 @@ bcdatapg <- function(get = get_this)
 bcdatapg()
 
 
+##---------------extra
+
+# bcdc_get_record("7ecfafa6-5e18-48cd-8d9b-eae5b5ea2881")
+# bcdc_tidy_resources("7ecfafa6-5e18-48cd-8d9b-eae5b5ea2881")
+# 
+# 
+# 
+# #ecosections-ecoregion-ecosystem-classification-of-british-columbia : ccc01f43-860d-4583-8ba4-e72d8379441e
+# #utm-zones-of-british-columbia
+# #water-rights-licences-public :5549cae0-c2b1-4b96-9777-529d9720803c
+# #pscis-assessments : 7ecfafa6-5e18-48cd-8d9b-eae5b5ea2881
+# 
+# ##should start a lookup table for these layers
+# get_this <- bcdc_tidy_resources("pscis-assessments") %>% 
+#   filter(bcdata_available == T)  %>% 
+#   pull(package_id)
